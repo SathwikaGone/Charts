@@ -1,11 +1,14 @@
 import "./App.css";
 import BarChart from "./Components/BarChart";
-
+import LineChart from "./Components/LineChart";
 function App() {
   return (
     <div className="App">
-      <h2>Charts</h2>
-      <BarChart />
+      <h2>Chart.js in React.js</h2>
+      <div className="Appp">
+        <BarChart />
+        <LineChart />
+      </div>
     </div>
   );
 }
