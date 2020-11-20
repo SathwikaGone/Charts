@@ -2,6 +2,7 @@ import "./App.css";
 import BarChart from "./Components/BarChart";
 import LineChart from "./Components/LineChart";
 import PieChart from "./Components/PieChart";
+import Doughnut from "./Components/DoughnutChart";
 function App() {
   return (
     <div className="App">
@@ -12,7 +13,7 @@ function App() {
       </div>
       <div className="Appp">
         <PieChart />
-        <LineChart />
+        <Doughnut />
       </div>
     </div>
   );
