@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
 import { useTable } from "react-table";
 import MockData from "./MOCK_DATA.json";
-import { COLUMNS } from "./columns";
+import { COLUMNS, GROUPED_COLUMNS } from "./columns";
 import "./BasicTable.css";
 
 export default function BasicTable() {
-  const columns = useMemo(() => COLUMNS, []);
+  const columns = useMemo(() => GROUPED_COLUMNS, []);
   const data = useMemo(() => MockData, []);
 
   const tableInstance = useTable({
