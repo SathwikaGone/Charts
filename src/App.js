@@ -5,6 +5,7 @@ import LineChart from "./Components/LineChart";
 import PieChart from "./Components/PieChart";
 import Doughnut from "./Components/DoughnutChart";
 import BasicTable from "./Components/BasicTable";
+import SortngTable from "./Components/SortingTable";
 function App() {
   const [Item, setItem] = useState(true);
 
@@ -29,7 +30,7 @@ function App() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <BasicTable />
+          <SortngTable />
         </React.Fragment>
       )}
     </div>
