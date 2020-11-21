@@ -6,6 +6,9 @@ import PieChart from "./Components/Charts/PieChart";
 import Doughnut from "./Components/Charts/DoughnutChart";
 import BasicTable from "./Components/Table/BasicTable";
 import SortngTable from "./Components/Table/SortingTable";
+import FilterTable from "./Components/Table/FilterTable";
+import Practice from "./Components/Table/Practice";
+
 function App() {
   const [Item, setItem] = useState(true);
 
@@ -30,7 +33,7 @@ function App() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <SortngTable />
+          <Practice />
         </React.Fragment>
       )}
     </div>
