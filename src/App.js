@@ -3,6 +3,7 @@ import BarChart from "./Components/BarChart";
 import LineChart from "./Components/LineChart";
 import PieChart from "./Components/PieChart";
 import Doughnut from "./Components/DoughnutChart";
+import BasicTable from "./Components/BasicTable";
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
         <PieChart />
         <Doughnut />
       </div>
+      <BasicTable />
     </div>
   );
 }
