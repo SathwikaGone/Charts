@@ -34,6 +34,7 @@ export default function SortngTable() {
     getTableBodyProps,
     headerGroups,
     footerGroups,
+    setGlobalFilter,
     page,
     prepareRow,
     state,
@@ -42,10 +43,12 @@ export default function SortngTable() {
     pageOptions,
     canNextPage,
     canPreviousPage,
-    setGlobalFilter,
+    gotoPage,
+    pageCount,
+    setPageSize,
   } = tableInstance;
 
-  const { globalFilter, pageIndex } = state;
+  const { globalFilter, pageIndex, pageSize } = state;
 
   return (
     <React.Fragment>
@@ -98,13 +101,45 @@ export default function SortngTable() {
       </table>
       <div>
         <span>
-          page {pageIndex + 1} of {pageOptions.length}
+          page {pageIndex + 1} of {pageOptions.length}{" "}
         </span>
+        <span>
+          | Go to page
+          <input
+            type="number"
+            defaultValue={pageIndex + 1}
+            onChange={(e) => {
+              const pageNum = e.target.value ? Number(e.target.value) - 1 : 0;
+              gotoPage(pageNum);
+            }}
+            style={{ width: "50px" }}
+          />
+        </span>
+
+        <select
+          value={pageSize}
+          onChange={(e) => {
+            setPageSize(Number(e.target.value));
+          }}
+        >
+          {[10, 25, 50].map((pageSize) => (
+            <option key={pageSize} value={pageSize}>
+              {" "}
+              Show {pageSize}
+            </option>
+          ))}
+        </select>
+        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+          {"<<"}
+        </button>
         <button onClick={() => previousPage()} disabled={!canPreviousPage}>
           previous
         </button>
         <button onClick={() => nextPage()} disabled={!canNextPage}>
           next
+        </button>
+        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+          {">>"}
         </button>
       </div>
     </React.Fragment>
