@@ -4,15 +4,20 @@ import MockData from "./MOCK_DATA.json";
 import { COLUMNS, GROUPED_COLUMNS } from "./columns";
 import "./BasicTable.css";
 import GlobalFilter from "./GlobalFilter";
+import ColumnFilter from "./ColumnFilter";
 
 export default function BasicTable() {
   const columns = useMemo(() => GROUPED_COLUMNS, []);
   const data = useMemo(() => MockData, []);
 
+  const defaultColumn = useMemo(() => {
+    return { Filter: ColumnFilter };
+  }, []);
   const tableInstance = useTable(
     {
       columns: columns,
       data: data,
+      defaultColumn,
     },
     useFilters,
     useGlobalFilter

@@ -33,7 +33,7 @@ function App() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <Practice />
+          <FilterTable />
         </React.Fragment>
       )}
     </div>
