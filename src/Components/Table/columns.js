@@ -42,10 +42,12 @@ export const GROUPED_COLUMNS = [
     accessor: "id",
     // Filter: ColumnFilter,
     disableFilters: true,
+    sticky: "left",
   },
   {
     Header: "Name",
     Footer: "Name",
+    sticky: "left",
     columns: [
       {
         Header: "First Name",
@@ -78,6 +80,16 @@ export const GROUPED_COLUMNS = [
         Header: "Phone",
         Footer: "Phone",
         accessor: "phone",
+      },
+      {
+        Header: "Email",
+        Footer: "Email",
+        accessor: "email",
+      },
+      {
+        Header: "Age",
+        Footer: "Age",
+        accessor: "age",
       },
     ],
   },

@@ -10,6 +10,9 @@ import FilterTable from "./Components/Table/FilterTable";
 import Practice from "./Components/Table/Practice";
 import PaginationTable from "./Components/Table/PaginationTable";
 import RowSelection from "./Components/Table/RowSelection";
+import ColumnOrder from "./Components/Table/ColumnOrder";
+import ColumnHiding from "./Components/Table/ColumnHiding";
+import StickyTable from "./Components/Table/StickyTable";
 function App() {
   const [Item, setItem] = useState(true);
 
@@ -34,7 +37,7 @@ function App() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <RowSelection />
+          <StickyTable />
         </React.Fragment>
       )}
     </div>
