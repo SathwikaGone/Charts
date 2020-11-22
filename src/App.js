@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import "./App.css";
-import BarChart from "./Components/BarChart";
-import LineChart from "./Components/LineChart";
-import PieChart from "./Components/PieChart";
-import Doughnut from "./Components/DoughnutChart";
-import BasicTable from "./Components/BasicTable";
-import SortngTable from "./Components/SortingTable";
+import BarChart from "./Components/Charts/BarChart";
+import LineChart from "./Components/Charts/LineChart";
+import PieChart from "./Components/Charts/PieChart";
+import Doughnut from "./Components/Charts/DoughnutChart";
+import BasicTable from "./Components/Table/BasicTable";
+import SortngTable from "./Components/Table/SortingTable";
+import FilterTable from "./Components/Table/FilterTable";
+import Practice from "./Components/Table/Practice";
+
 function App() {
   const [Item, setItem] = useState(true);
 
@@ -30,7 +33,7 @@ function App() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <SortngTable />
+          <FilterTable />
         </React.Fragment>
       )}
     </div>

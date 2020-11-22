@@ -1,9 +1,11 @@
 import { format } from "date-fns";
+import ColumnFilter from "./ColumnFilter";
 export const COLUMNS = [
   {
     Header: "Id",
     Footer: "Id",
     accessor: "id",
+    disableFilters: true,
   },
   {
     Header: "First Name",
@@ -38,6 +40,8 @@ export const GROUPED_COLUMNS = [
     Header: "Id",
     Footer: "Id",
     accessor: "id",
+    // Filter: ColumnFilter,
+    disableFilters: true,
   },
   {
     Header: "Name",
