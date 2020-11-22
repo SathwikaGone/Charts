@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { useTable, useSortBy, useGlobalFilter } from "react-table";
+import { useTable, useSortBy, useGlobalFilter, useFilters } from "react-table";
 import MockData from "./MOCK_DATA.json";
 import { COLUMNS, GROUPED_COLUMNS } from "./columns";
 import "./BasicTable.css";
@@ -14,6 +14,7 @@ export default function SortngTable() {
       columns: columns,
       data: data,
     },
+    useFilters,
     useGlobalFilter,
     useSortBy
   );
@@ -48,6 +49,7 @@ export default function SortngTable() {
                         : " 🔼"
                       : ""}
                   </span>
+                  <div>{column.canFilter ? column.render("Filter") : null}</div>
                 </th>
               ))}
             </tr>
