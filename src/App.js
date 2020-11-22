@@ -34,7 +34,7 @@ function App() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <Practice />
+          <PaginationTable />
         </React.Fragment>
       )}
     </div>
