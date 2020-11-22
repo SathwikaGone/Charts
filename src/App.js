@@ -9,7 +9,7 @@ import SortngTable from "./Components/Table/SortingTable";
 import FilterTable from "./Components/Table/FilterTable";
 import Practice from "./Components/Table/Practice";
 import PaginationTable from "./Components/Table/PaginationTable";
-
+import RowSelection from "./Components/Table/RowSelection";
 function App() {
   const [Item, setItem] = useState(true);
 
@@ -34,7 +34,7 @@ function App() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <PaginationTable />
+          <RowSelection />
         </React.Fragment>
       )}
     </div>
