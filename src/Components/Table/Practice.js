@@ -5,12 +5,14 @@ import {
   useGlobalFilter,
   useFilters,
   usePagination,
+  useColumnOrder,
 } from "react-table";
 import MockData from "./MOCK_DATA.json";
 import { COLUMNS, GROUPED_COLUMNS } from "./columns";
 import "./BasicTable.css";
 import GlobalFilter from "./GlobalFilter";
 import ColumnFilter from "./ColumnFilter";
+import { Checkbox } from "./Checkbox";
 
 export default function SortngTable() {
   const columns = useMemo(() => GROUPED_COLUMNS, []);
@@ -26,7 +28,8 @@ export default function SortngTable() {
     useFilters,
     useGlobalFilter,
     useSortBy,
-    usePagination
+    usePagination,
+    useColumnOrder
   );
 
   const {
@@ -46,12 +49,37 @@ export default function SortngTable() {
     gotoPage,
     pageCount,
     setPageSize,
+    setColumnOrder,
+    getToggleHideAllColumnsProps,
+    allColumns,
   } = tableInstance;
 
   const { globalFilter, pageIndex, pageSize } = state;
+  const handleColumnOrder = () => {
+    setColumnOrder([
+      "id",
+      "first_name",
+      "last_name",
+      "country",
+      "phone",
+      "date_of_birth",
+    ]);
+  };
 
   return (
     <React.Fragment>
+      <div style={{ textAlign: "left" }}>
+        <Checkbox {...getToggleHideAllColumnsProps()} /> Hide all Columns
+        {allColumns.map((column) => (
+          <div>
+            <label>
+              <input type="checkbox" {...column.getToggleHiddenProps()} />
+              {column.Header}
+            </label>
+          </div>
+        ))}
+      </div>
+      <button onClick={handleColumnOrder}>Column Order</button>
       <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
       <table {...getTableProps()}>
         <thead>
@@ -115,7 +143,6 @@ export default function SortngTable() {
             style={{ width: "50px" }}
           />
         </span>
-
         <select
           value={pageSize}
           onChange={(e) => {

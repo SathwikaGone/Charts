@@ -36,9 +36,9 @@ function App() {
           </div>
         </React.Fragment>
       ) : (
-        <React.Fragment>
-          <StickyTable />
-        </React.Fragment>
+        <div style={{ marginBottom: "50px" }}>
+          <Practice />
+        </div>
       )}
     </div>
   );
